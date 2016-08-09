@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>LocalForage tutorial 1 | HTMLCheats</title>
+
+        <!-- NOTES
+        Uses Skeletoncss
+        ---------------------------- --> 
+
+        <!-- FONT
+        ---------------------------- --> 
+        <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+        
+        <!-- CSS
+        ---------------------------- --> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+
+    </head>
+    <body>
+        <form>
+            <div class="row">
+                <div class="six columns">
+                    <label for="Title">Title</label>
+                    <input type="text" name="title" class="u-full-width" placeholder="One line summary" id="title">
+                </div>
+            </div><!-- .row -->
+            <div class="row">
+                <div class="six columns">
+                    <label for="Description">Description</label>
+                    <textarea class="u-full-width" placeholder="Full explanation" id="description""></textarea>
+                </div><!-- six columns --> 
+            </div><!-- row -->
+            <input id="save" class="button-primary" type="submit" value="Save">
+        </form>
+
+        <table id="records" class="u-full-width">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                </tr>
+            </tbody>
+        </table>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.4.2/localforage.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.0.slim.min.js"   integrity="sha256-cRpWjoSOw5KcyIOaZNo4i6fZ9tKPhYYb6i5T9RSVJG8="   crossorigin="anonymous"></script>  
+
+        <script>
+            $(document).ready(function(){
+                $("#save").click(function() {
+                    var title = $('#title').val();
+                    var description = $('#description').val();
+                    console.log('clicked save button');
+                    var row = '<tr><td>' + title + '</td>' + '<td>' + description + '</td></tr>';
+                    $('#records > tbody:last-child').append(row);
+                    // Stop default action on this clik or you lose the row
+                    event.preventDefault();
+                });
+            });
+         </script>
+
+            
+    </body>
+</html>
+
